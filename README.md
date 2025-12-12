@@ -1,0 +1,1 @@
+# Infra - Static Assets
