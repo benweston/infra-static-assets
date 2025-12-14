@@ -2,7 +2,7 @@ resource "google_storage_bucket" "course_certificates" {
   name          = "course-certificates-${random_integer.suffix.result}"
   location      = "EUROPE-WEST2"
   force_destroy = false
-  project       = google_project.infra_statc_assets.project_id
+  project       = google_project.infra_static_assets.project_id
   storage_class = "STANDARD"
 
   public_access_prevention    = "inherited"

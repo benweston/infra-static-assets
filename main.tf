@@ -1,8 +1,8 @@
-resource "google_project" "infra_statc_assets" {
-  name                = "Infra - Static Assets"
-  project_id          = "infra-statc-assets-${random_integer.suffix.result}"
-  billing_account     = var.billing_account_id
-  auto_create_network = false
+resource "google_project" "infra_static_assets" {
+  name            = "Infra - Static Assets"
+  project_id      = "infra-static-assets-${random_integer.suffix.result}"
+  billing_account = var.billing_account_id
+  deletion_policy = "DELETE"
 }
 
 resource "google_project_service" "enabled_apis" {
@@ -19,6 +19,6 @@ resource "google_project_service" "enabled_apis" {
   ])
 
   service            = each.key
-  project            = google_project.infra_statc_assets.project_id
+  project            = google_project.infra_static_assets.project_id
   disable_on_destroy = false
 }
