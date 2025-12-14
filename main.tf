@@ -22,3 +22,9 @@ resource "google_project_service" "enabled_apis" {
   project            = google_project.infra_static_assets.project_id
   disable_on_destroy = false
 }
+
+resource "time_sleep" "wait_for_apis" {
+  create_duration = "60s"
+
+  depends_on = [google_project_service.enabled_apis]
+}
